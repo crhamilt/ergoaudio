@@ -7,7 +7,7 @@
 #
 # Version   Date     Description
 #   1.0     9/12/16  Initial coding
-#   
+#   git will add version numbers automatically
 
 
 import argparse
@@ -68,7 +68,7 @@ def gen_timing(args):
     # ~~~~~~~~~~~~~~  setup some variables  ~~~~~~~~~~~~~~~~~~~~~
     
     periodS = 60.0/rpm
-    durationS = durationMins*60.0
+    durationS = int(durationMins*60.0)
     hibeep = 1000.0
     lobeep = 2000.0
     alertbeep = 2000.0
@@ -100,7 +100,7 @@ def gen_timing(args):
                         print >> tfile,timeptS,", 0.2,",hibeep
                     
                         timeptS += periodS/2.0
-                        print >> tfile,timeptS,", 0.2,",lobeep
+                        # print >> tfile,timeptS,", 0.2,",lobeep
                         timeptS += periodS/2.0
                 else:
                     timeptS += periodS   # no sound for one full period

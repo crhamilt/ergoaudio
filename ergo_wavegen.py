@@ -60,16 +60,19 @@ if os.path.exists(timingfilename):
 
             tfile.close()
         except IOError:
-            print "Could not read file: ",timingfilename
+            print("Could not read file: ",timingfilename)
             sys.exit()
 else:
-    print "File not found: ", timingfilename
+    print("File not found: ", timingfilename)
     sys.exit()
 
 # ~~~~~~~~~~~~~   create numpy arrays from lists ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 onset = np.array([float(i) for i in list0])
 duration = np.array([float(i) for i in list1])
 freq = np.array([float(i) for i in list2])
+
+for v in range(0,12):
+    print('%d onset: %5.1f duration: %5.1f freq: %5.1f' % (v,onset[v],duration[v],freq[v]))
 
 # ~~~~~~~~~~~~~  compute some values  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 totalduration = onset[-1]+duration[-1]   # duration of entire waveform in seconds
